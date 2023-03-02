@@ -1,97 +1,41 @@
 import { ApolloServer, gql } from "apollo-server";
-
-const allNfts = [
-  {
-    id: "1",
-    name: "NFT 1",
-    description: "NFT 1 description",
-    image: "https://picsum.photos/200",
-    externalUrl: "https://picsum.photos/200",
-    userId: "11",
-    owner: {
-      id: "1",
-      name: "Owner 1",
-      walletAddress: "0x123",
-      profileImage: "https://picsum.photos/200",
-    },
-    collection: {
-      name: "Collection 1",
-      description: "Collection 1 description",
-      image: "https://picsum.photos/200",
-      creator: {
-        id: "1",
-        name: "Owner 1",
-        walletAddress: "0x123",
-        profileImage: "https://picsum.photos/200",
-      },
-    },
-  },
-  {
-    id: "2",
-    name: "NFT 2",
-    description: "NFT 2 description",
-    image: "https://picsum.photos/200",
-    externalUrl: "https://picsum.photos/200",
-    userId: "22",
-    owner: {
-      id: "1",
-      name: "Owner 1",
-      walletAddress: "0x123",
-      profileImage: "https://picsum.photos/200",
-    },
-    collection: {
-      name: "Collection 1",
-      description: "Collection 1 description",
-      image: "https://picsum.photos/200",
-      creator: {
-        id: "1",
-        name: "Owner 1",
-        walletAddress: "0x123",
-        profileImage: "https://picsum.photos/200",
-      },
-    },
-  },
-];
-const owner = [
-  {
-    id: "1",
-    name: "Owner 1",
-    walletAddress: "0x123",
-    profileImage: "https://picsum.photos/200",
-  },
-];
+import { allCollection } from "./database/db";
 
 const typeDefs = gql`
   type Owner {
     id: ID!
     name: String!
-    walletAddress: String!
+    address: String!
     profileImage: String!
-    """
-    FullName is a computed field that combines name and walletAddress fields of the Owner type.
-    """
-    fullName: String!
-  }
-  type Collection {
-    name: String!
-    description: String!
-    image: String!
-    creator: Owner!
+    coverImage: String!
   }
   type Nft {
     id: ID!
     name: String!
-    description: String!
     image: String!
-    externalUrl: String!
     owner: Owner!
     collection: Collection!
   }
+  type Collection {
+    id: ID!
+    name: String!
+    profileImage: String!
+    coverImage: String!
+    category: String!
+    creator: Owner!
+    itemNumber: Int!
+    createdAt: String!
+    description: String!
+    totalVolume: Int!
+    floorPrice: Int!
+    items: [Nft!]!
+  }
 
   type Query {
-    allOwners: [Owner!]!
-    allNfts: [Nft!]!
-    nft(id: ID!): Nft!
+    allCollections: [Collection!]!
+    artCollection(category: String!): [Collection!]!
+    gamingCollection(category: String!): [Collection!]!
+    pfpsCollection(category: String!): [Collection!]!
   }
   type Mutation {
     createNft(
@@ -101,23 +45,38 @@ const typeDefs = gql`
       externalUrl: String
       userId: String!
     ): Nft!
-    deleteNft(id: ID!): Boolean!
   }
 `;
 
 const resolvers = {
   Query: {
-    allOwners() {
-      return owner;
+    allCollections() {
+      allCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      return allCollection;
     },
-    allNfts() {
-      return allNfts;
+    artCollection(_, { category }) {
+      const artCollection = allCollection.filter(
+        (collection) => collection.category === category
+      );
+      artCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      return artCollection;
     },
-    nft(_, { id }) {
-      console.log(id);
-      return allNfts.find((nft) => nft.id === id);
+    gamingCollection(_, { category }) {
+      const gamingCollection = allCollection.filter(
+        (collection) => collection.category === category
+      );
+      gamingCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      return gamingCollection;
+    },
+    pfpsCollection(_, { category }) {
+      const pfpsCollection = allCollection.filter(
+        (collection) => collection.category === category
+      );
+      pfpsCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      return pfpsCollection;
     },
   },
+
   Mutation: {
     createNft(_, { name, description, image, externalUrl, userId }) {
       const newNft = {
@@ -130,22 +89,6 @@ const resolvers = {
       };
       allNfts.push(newNft);
       return newNft;
-    },
-    deleteNft(_, { id }) {
-      const findNft = allNfts.find((nft) => nft.id === Number(id));
-      if (!findNft) return false;
-      allNfts = allNfts.filter((nft) => nft.id !== Number(id));
-      return true;
-    },
-  },
-  Owner: {
-    fullName({ name, walletAddress }) {
-      return `${name} ${walletAddress}`;
-    },
-  },
-  Nft: {
-    owner({ userId }) {
-      return owner.find((owner) => owner.id === userId);
     },
   },
 };
