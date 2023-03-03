@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from "apollo-server";
-import { allCollection } from "./database/db";
+import { allCollections, allOwners } from "./database/db.js";
 
 const typeDefs = gql`
   type Owner {
@@ -11,10 +11,12 @@ const typeDefs = gql`
   }
   type Nft {
     id: ID!
+    collectionId: ID!
+    ownerId: ID!
     name: String!
     image: String!
     owner: Owner!
-    collection: Collection!
+    collectionName: String!
   }
   type Collection {
     id: ID!
@@ -51,25 +53,25 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     allCollections() {
-      allCollection.sort((a, b) => a.totalVolume - b.totalVolume);
-      return allCollection;
+      allCollections.sort((a, b) => a.totalVolume - b.totalVolume);
+      return allCollections;
     },
     artCollection(_, { category }) {
-      const artCollection = allCollection.filter(
+      const artCollection = allCollections.filter(
         (collection) => collection.category === category
       );
       artCollection.sort((a, b) => a.totalVolume - b.totalVolume);
       return artCollection;
     },
     gamingCollection(_, { category }) {
-      const gamingCollection = allCollection.filter(
+      const gamingCollection = allCollections.filter(
         (collection) => collection.category === category
       );
       gamingCollection.sort((a, b) => a.totalVolume - b.totalVolume);
       return gamingCollection;
     },
     pfpsCollection(_, { category }) {
-      const pfpsCollection = allCollection.filter(
+      const pfpsCollection = allCollections.filter(
         (collection) => collection.category === category
       );
       pfpsCollection.sort((a, b) => a.totalVolume - b.totalVolume);
@@ -89,6 +91,16 @@ const resolvers = {
       };
       allNfts.push(newNft);
       return newNft;
+    },
+  },
+
+  Nft: {
+    owner({ ownerId }) {
+      return allOwners.find((owner) => owner.id === ownerId);
+    },
+    collectionName({ collectionId }) {
+      return allCollections.find((collection) => collection.id === collectionId)
+        .name;
     },
   },
 };
