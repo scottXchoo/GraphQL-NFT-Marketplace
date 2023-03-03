@@ -11,7 +11,7 @@ export const allOwners = [
 export const allCollections = [
   {
     id: "1",
-    name: "ape name toto",
+    name: "Checks - VV Edition",
     profileImage: "https://picsum.photos/200",
     coverImage: "https://picsum.photos/200",
     category: "Art",
