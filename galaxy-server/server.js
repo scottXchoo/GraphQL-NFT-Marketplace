@@ -6,13 +6,12 @@ const typeDefs = gql`
     id: ID!
     name: String!
     address: String!
-    profileImage: String!
-    coverImage: String!
+    alias: String
   }
   type Nft {
     id: ID!
-    collectionId: ID!
     ownerId: ID!
+    collectionId: ID!
     name: String!
     image: String!
     owner: Owner!
@@ -20,6 +19,7 @@ const typeDefs = gql`
   }
   type Collection {
     id: ID!
+    creatorId: ID!
     name: String!
     profileImage: String!
     coverImage: String!
@@ -79,6 +79,27 @@ const resolvers = {
     },
   },
 
+  Nft: {
+    owner({ ownerId }) {
+      return allOwners.find((owner) => owner.id === ownerId);
+    },
+    collectionName({ collectionId }) {
+      return allCollections.find((collection) => collection.id === collectionId)
+        .name;
+    },
+    name({ collectionId, id }) {
+      const name = allCollections.find(
+        (collection) => collection.id === collectionId
+      ).name;
+      return `${name} #${id}`;
+    },
+  },
+  Collection: {
+    creator({ creatorId }) {
+      return allOwners.find((owner) => owner.id === creatorId);
+    },
+  },
+
   Mutation: {
     createNft(_, { name, description, image, externalUrl, userId }) {
       const newNft = {
@@ -91,16 +112,6 @@ const resolvers = {
       };
       allNfts.push(newNft);
       return newNft;
-    },
-  },
-
-  Nft: {
-    owner({ ownerId }) {
-      return allOwners.find((owner) => owner.id === ownerId);
-    },
-    collectionName({ collectionId }) {
-      return allCollections.find((collection) => collection.id === collectionId)
-        .name;
     },
   },
 };
