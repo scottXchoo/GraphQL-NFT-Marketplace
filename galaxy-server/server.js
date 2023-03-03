@@ -34,6 +34,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    nft(collectionId: ID!, nftId: ID!): Nft!
     allCollections: [Collection!]!
     artCollection(category: String!): [Collection!]!
     gamingCollection(category: String!): [Collection!]!
@@ -52,6 +53,12 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
+    nft(_, { collectionId, nftId }) {
+      const allNfts = allCollections.find(
+        (collection) => collection.id === collectionId
+      ).items;
+      return allNfts.find((nft) => nft.id === nftId);
+    },
     allCollections() {
       allCollections.sort((a, b) => a.totalVolume - b.totalVolume);
       return allCollections;
