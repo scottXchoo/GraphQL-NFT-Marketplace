@@ -29,7 +29,7 @@ const typeDefs = gql`
     createdAt: String!
     description: String!
     totalVolume: Int!
-    floorPrice: Int!
+    floorPrice: String!
     items: [Nft!]!
   }
 
@@ -60,7 +60,7 @@ const resolvers = {
       return allNfts.find((nft) => nft.id === nftId);
     },
     allCollections() {
-      allCollections.sort((a, b) => a.totalVolume - b.totalVolume);
+      allCollections.sort((a, b) => b.totalVolume - a.totalVolume);
       return allCollections;
     },
     artCollection(_, { category }) {
