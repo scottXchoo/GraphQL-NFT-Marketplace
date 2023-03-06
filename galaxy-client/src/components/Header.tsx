@@ -15,7 +15,7 @@ const Header = () => {
               className="rounded-full shadow-md mr-3"
             />
             <div className="w-auto mr-14 flex">
-              <h1 className="text-3xl leading-tight font-heading text-white">
+              <h1 className="font-semibold text-3xl leading-tight text-white">
                 Galaxy
                 <p className="text-base text-gray-500">
                   : the largest NFT Marketplace in Cosmos Ecosystem
@@ -28,13 +28,13 @@ const Header = () => {
           <div className="flex flex-wrap items-center">
             <div className="w-auto hidden lg:block">
               <ul className="flex items-center mr-10">
-                <li className="font-heading mr-9 text-white hover:text-gray-200 text-lg">
+                <li className="mr-9 text-white hover:text-gray-200 text-lg">
                   <a href="#">Shop</a>
                 </li>
-                <li className="font-heading mr-9 text-white hover:text-gray-200 text-lg">
+                <li className="mr-9 text-white hover:text-gray-200 text-lg">
                   <a href="#">Create</a>
                 </li>
-                <li className="font-heading mr-9 text-white hover:text-gray-200 text-lg">
+                <li className="mr-9 text-white hover:text-gray-200 text-lg">
                   <a href="#">Profile</a>
                 </li>
               </ul>
@@ -43,32 +43,6 @@ const Header = () => {
               <button className="inline-block font-heading py-3 px-6 leading-none text-white text-md bg-indigo-600 hover:bg-indigo-600 rounded shadow">
                 Connect Wallet
               </button>
-            </div>
-            <div className="w-auto lg:hidden">
-              <a href="#">
-                <svg
-                  className="navbar-burger text-gray-800"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 56 56"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="56"
-                    height="56"
-                    rx="28"
-                    fill="currentColor"
-                  ></rect>
-                  <path
-                    d="M37 32H19M37 24H19"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
