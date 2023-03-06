@@ -11,6 +11,8 @@ export const ALL_COLLECTIONS = gql`
       id
       name
       totalVolume
+      floorPrice
+      profileImage
     }
   }
 `;
