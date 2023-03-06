@@ -64,7 +64,6 @@ const resolvers = {
       const nfts = allCollections.find(
         (collection) => collection.id === collectionId
       ).items;
-      console.log(nfts);
       return nfts;
     },
     allCollections() {
