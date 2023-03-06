@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { ALL_COLLECTIONS } from "@/api/query";
+import Header from "@/components/Header";
 
 interface Collection {
   id: string;
@@ -26,6 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header />
         {data.allCollections.map((collection: Collection) => (
           <div key={`${collection.id}/${collection.name}`}>
             <h3>{collection.name}</h3>
