@@ -10,12 +10,12 @@ const Header = () => {
             <Image
               width={40}
               height={40}
-              src="/public/galaxyLogo.png"
+              src="/galaxyLogo.png"
               alt=""
               className="rounded shadow-md mr-3"
             />
             <div className="w-auto mr-14 flex">
-              <h1 className="text-5xl leading-tight font-heading text-white">
+              <h1 className="text-3xl leading-tight font-heading text-white">
                 Galaxy
               </h1>
             </div>
