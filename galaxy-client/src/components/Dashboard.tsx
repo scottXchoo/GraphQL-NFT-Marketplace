@@ -21,7 +21,7 @@ interface Nft {
 const Dashboard = () => {
   const { data, loading, error } = useQuery(ALL_COLLECTIONS, {
     variables: {
-      collectionId: "1",
+      collectionId: "3",
     },
   });
   if (loading) return <h1>Loading...</h1>;
@@ -29,12 +29,10 @@ const Dashboard = () => {
 
   return (
     <section className="py-1 mx-auto">
-      <div className="pt-6 bg-gray-900 shadow">
-        <div className="px-6 border-b">
-          <div className="flex flex-wrap items-center mb-6">
-            <h3 className="text-xl font-bold text-white">
-              The Most Trendy NFTs
-            </h3>
+      <div className="pt-8 pb-8 bg-gray-900 shadow">
+        <div className="px-8 border-b">
+          <div className="flex flex-wrap items-center mb-3">
+            <h3 className="text-2xl font-bold text-white">Trending NFTs</h3>
           </div>
           <div className="flex justify-between pb-8 px-4">
             {data.nftsByCollection.map((nft: Nft) => (
@@ -47,7 +45,7 @@ const Dashboard = () => {
                   className="rounded-2xl shadow-md w-full"
                 />
                 <div className="absolute bg-black w-full h-10 bottom-0 left-0 opacity-50 rounded-b-2xl"></div>
-                <p className="text-white absolute bottom-2 left-2">
+                <p className="font-semibold text-sm text-white absolute bottom-2 left-2">
                   {nft.name}
                 </p>
               </div>
