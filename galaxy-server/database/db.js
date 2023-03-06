@@ -30,6 +30,27 @@ export const allOwners = [
     name: "PROOF_XYZ",
     address: "0x6c8984bAf566Db08675310b122BF0be9Ea269ecA",
   },
+  {
+    id: "7",
+    name: "AzraGamesStudio",
+    address: "0x971c804Ca0c034553Ef0D31a55D8381488317149",
+  },
+  {
+    id: "8",
+    name: "Unnamed",
+    address: "0x9508beF82cBC940ddF1344b26fc2Ce28ad71df14",
+  },
+  {
+    id: "9",
+    name: "0xAIDeployer",
+    address: "0xD6650c1813b96A2581b82882C38A4f4EbE81316a",
+  },
+  {
+    id: "10",
+    name: "harvmcmsblocks",
+    alias: "harvmcmsblocks.eth",
+    address: "0x5c991D442a2E312d4Ec339b4DA31144F30467395",
+  },
 ];
 
 export const allCollections = [
