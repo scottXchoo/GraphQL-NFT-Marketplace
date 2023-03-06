@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const ALL_COLLECTIONS = gql`
-  query getCollections($collectionId: ID!, $nftId: ID!) {
-    nft(collectionId: $collectionId, nftId: $nftId) {
+  query getCollections($collectionId: ID!) {
+    nftsByCollection(collectionId: $collectionId) {
       id
       name
       image

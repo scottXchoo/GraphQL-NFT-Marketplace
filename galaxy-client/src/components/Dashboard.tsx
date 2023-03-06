@@ -12,22 +12,46 @@ interface Collection {
   profileImage: string;
 }
 
+interface Nft {
+  id: string;
+  name: string;
+  image: string;
+}
+
 const Dashboard = () => {
   const { data, loading, error } = useQuery(ALL_COLLECTIONS, {
     variables: {
       collectionId: "1",
-      nftId: "5238",
     },
   });
   if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Not fetch :(</h1>;
+  if (error) return <h1>Not fetching :(</h1>;
 
   return (
     <section className="py-1 mx-auto">
       <div className="pt-6 bg-gray-900 shadow">
         <div className="px-6 border-b">
           <div className="flex flex-wrap items-center mb-6">
-            <h3 className="text-xl font-bold text-white">NFT Dashboard</h3>
+            <h3 className="text-xl font-bold text-white">
+              The Most Trendy NFTs
+            </h3>
+          </div>
+          <div className="flex justify-between pb-8 px-4">
+            {data.nftsByCollection.map((nft: Nft) => (
+              <div key={nft.id} className="relative">
+                <Image
+                  width={300}
+                  height={300}
+                  src={nft.image}
+                  alt="nftsByCollection"
+                  className="rounded-2xl shadow-md w-full"
+                />
+                <div className="absolute bg-black w-full h-10 bottom-0 left-0 opacity-50 rounded-b-2xl"></div>
+                <p className="text-white absolute bottom-2 left-2">
+                  {nft.name}
+                </p>
+              </div>
+            ))}
           </div>
           <div>
             <a
