@@ -8,15 +8,18 @@ const Header = () => {
         <div className="w-auto">
           <div className="flex flex-wrap items-center">
             <Image
-              width={40}
-              height={40}
+              width={60}
+              height={60}
               src="/galaxyLogo.png"
               alt=""
-              className="rounded shadow-md mr-3"
+              className="rounded-full shadow-md mr-3"
             />
             <div className="w-auto mr-14 flex">
               <h1 className="text-3xl leading-tight font-heading text-white">
                 Galaxy
+                <p className="text-base text-gray-500">
+                  : the largest NFT Marketplace in Cosmos Ecosystem
+                </p>
               </h1>
             </div>
           </div>
@@ -26,7 +29,7 @@ const Header = () => {
             <div className="w-auto hidden lg:block">
               <ul className="flex items-center mr-10">
                 <li className="font-heading mr-9 text-white hover:text-gray-200 text-lg">
-                  <a href="#">Shopping</a>
+                  <a href="#">Shop</a>
                 </li>
                 <li className="font-heading mr-9 text-white hover:text-gray-200 text-lg">
                   <a href="#">Create</a>
