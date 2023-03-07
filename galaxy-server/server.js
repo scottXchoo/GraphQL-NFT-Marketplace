@@ -37,9 +37,9 @@ const typeDefs = gql`
     nft(collectionId: ID!, nftId: ID!): Nft!
     nftsByCollection(collectionId: ID!): [Nft!]!
     allCollections: [Collection!]!
-    artCollection(category: String!): [Collection!]!
-    gamingCollection(category: String!): [Collection!]!
-    pfpsCollection(category: String!): [Collection!]!
+    artCollection: [Collection!]!
+    gamingCollection: [Collection!]!
+    pfpCollection: [Collection!]!
   }
   type Mutation {
     createNft(
@@ -70,26 +70,26 @@ const resolvers = {
       allCollections.sort((a, b) => b.totalVolume - a.totalVolume);
       return allCollections;
     },
-    artCollection(_, { category }) {
+    artCollection() {
       const artCollection = allCollections.filter(
-        (collection) => collection.category === category
+        (collection) => collection.category === "art"
       );
-      artCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      artCollection.sort((a, b) => b.totalVolume - a.totalVolume);
       return artCollection;
     },
-    gamingCollection(_, { category }) {
+    gamingCollection() {
       const gamingCollection = allCollections.filter(
-        (collection) => collection.category === category
+        (collection) => collection.category === "gaming"
       );
-      gamingCollection.sort((a, b) => a.totalVolume - b.totalVolume);
+      gamingCollection.sort((a, b) => b.totalVolume - a.totalVolume);
       return gamingCollection;
     },
-    pfpsCollection(_, { category }) {
-      const pfpsCollection = allCollections.filter(
-        (collection) => collection.category === category
+    pfpCollection() {
+      const pfpCollection = allCollections.filter(
+        (collection) => collection.category === "pfp"
       );
-      pfpsCollection.sort((a, b) => a.totalVolume - b.totalVolume);
-      return pfpsCollection;
+      pfpCollection.sort((a, b) => b.totalVolume - a.totalVolume);
+      return pfpCollection;
     },
   },
 
