@@ -60,7 +60,7 @@ export const allCollections = [
     name: "Azuki",
     profileImage: "/collections/Azuki/profile.png",
     coverImage: "/collections/Azuki/cover.png",
-    category: "pfps",
+    category: "pfp",
     itemNumber: 10000,
     createdAt: "2022-01",
     description:
@@ -128,7 +128,7 @@ export const allCollections = [
     name: "CLONE X - X TAKASHI MURAKAMI",
     profileImage: "/collections/CLONEX/profile.jpg",
     coverImage: "/collections/CLONEX/cover.jpg",
-    category: "pfps",
+    category: "pfp",
     itemNumber: 19500,
     createdAt: "2021-12",
     description:
@@ -196,7 +196,7 @@ export const allCollections = [
     name: "CyberKingz",
     profileImage: "/collections/CyberKongz/profile.png",
     coverImage: "/collections/CyberKongz/cover.png",
-    category: "pfps",
+    category: "pfp",
     itemNumber: 1000,
     createdAt: "2021-04",
     description:
@@ -230,7 +230,7 @@ export const allCollections = [
     name: "Moonbirds",
     profileImage: "/collections/Moonbirds/profile.png",
     coverImage: "/collections/Moonbirds/cover.png",
-    category: "pfps",
+    category: "pfp",
     itemNumber: 10000,
     createdAt: "2021-04",
     description:
