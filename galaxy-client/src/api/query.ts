@@ -13,6 +13,8 @@ export const ALL_COLLECTIONS = gql`
       totalVolume
       floorPrice
       profileImage
+      createdAt
+      category
     }
   }
 `;

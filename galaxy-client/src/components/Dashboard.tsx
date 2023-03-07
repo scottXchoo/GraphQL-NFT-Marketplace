@@ -11,6 +11,7 @@ interface Collection {
   totalVolume: number;
   floorPrice: string;
   profileImage: string;
+  createdAt: string;
 }
 
 interface Nft {
@@ -87,10 +88,14 @@ const Dashboard = () => {
                 <th className="flex items-center pl-8 pt-8 font-medium">
                   <span>COLLECTION</span>
                 </th>
-                <th className="pt-8 font-medium text-right pr-12">
+                <th className="pt-8 font-medium text-right pr-10">
                   FLOOR PRICE
                 </th>
-                <th className="pt-8 font-medium text-right pr-12">VOLUME</th>
+                <th className="pt-8 font-medium text-right pr-10">VOLUME</th>
+                <th className="pt-8 font-medium text-right pr-10">CATEOGRY</th>
+                <th className="pt-8 font-medium text-right pr-10">
+                  CREATED AT
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -110,11 +115,17 @@ const Dashboard = () => {
                       </button>
                       <p className="text-white text-sm">{collection.name}</p>
                     </td>
-                    <td className="text-white text-sm text-right pr-12">
+                    <td className="text-white text-sm text-right pr-10">
                       {collection.floorPrice} ETH
                     </td>
-                    <td className="text-white text-sm text-right pr-12">
+                    <td className="text-white text-sm text-right pr-10">
                       {collection.totalVolume} ETH
+                    </td>
+                    <td className="text-white text-sm text-right pr-10">
+                      {collection.category.toUpperCase()}
+                    </td>
+                    <td className="text-white text-sm text-right pr-10">
+                      {collection.createdAt}
                     </td>
                   </tr>
                 )
