@@ -18,7 +18,7 @@ const Footer = () => {
             <h1 className="text-xl leading-tight font-heading text-white">
               Galaxy
               <p className="text-xs text-gray-500">
-                : the largest NFT Marketplace in Cosmos Ecosystem
+                : The Multi-chain NFT Marketplace
               </p>
             </h1>
           </div>

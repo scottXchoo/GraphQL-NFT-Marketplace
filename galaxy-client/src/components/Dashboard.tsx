@@ -21,7 +21,7 @@ interface Nft {
 
 const Dashboard = () => {
   const [collectionId, setCollectionId] = useState("3");
-  const { data, loading, error, client } = useQuery(ALL_COLLECTIONS, {
+  const { data, loading, error } = useQuery(ALL_COLLECTIONS, {
     variables: {
       collectionId: `${collectionId}`,
     },
@@ -111,10 +111,10 @@ const Dashboard = () => {
                       <p className="text-white text-sm">{collection.name}</p>
                     </td>
                     <td className="text-white text-sm text-right pr-12">
-                      {collection.floorPrice} ATOM
+                      {collection.floorPrice} ETH
                     </td>
                     <td className="text-white text-sm text-right pr-12">
-                      {collection.totalVolume} ATOM
+                      {collection.totalVolume} ETH
                     </td>
                   </tr>
                 )

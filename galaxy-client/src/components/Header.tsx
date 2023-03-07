@@ -18,7 +18,7 @@ const Header = () => {
               <h1 className="font-semibold text-3xl leading-tight text-white">
                 Galaxy
                 <p className="text-base text-gray-500">
-                  : the largest NFT Marketplace in Cosmos Ecosystem
+                  : The Multi-chain NFT Marketplace
                 </p>
               </h1>
             </div>
