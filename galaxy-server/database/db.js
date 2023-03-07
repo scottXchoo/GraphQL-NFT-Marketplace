@@ -51,6 +51,37 @@ export const allOwners = [
     alias: "harvmcmsblocks.eth",
     address: "0x5c991D442a2E312d4Ec339b4DA31144F30467395",
   },
+  {
+    id: "11",
+    name: "TeamAzuki",
+    address: "0x2aE6B0630EBb4D155C6e04fCB16840FFA77760AA",
+  },
+  {
+    id: "12",
+    name: "Bullieverse",
+    address: "0xBECcA544dA77c293e1017A621da5F44374500317",
+  },
+  {
+    id: "13",
+    name: "RTFKTCLONEXTM",
+    address: "0x12eA19217C65F36385bB030D00525c1034E2F0Af",
+  },
+  {
+    id: "14",
+    name: "CreatureWolrd",
+    address: "0x8324BdEF2F30E08E368f2Fa2F14143cDCA77423D",
+  },
+  {
+    id: "15",
+    name: "CyberKongz",
+    alias: "cyberkongz.eth",
+    address: "0x9ffAD2FF3A59D8579E3b0EDC6c8F2F591C94DFaB",
+  },
+  {
+    id: "16",
+    name: "PROOF_XYZ",
+    address: "0x6c8984bAf566Db08675310b122BF0be9Ea269ecA",
+  },
 ];
 
 export const allCollections = [
@@ -65,8 +96,9 @@ export const allCollections = [
     createdAt: "2022-01",
     description:
       "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more.",
-    totalVolume: 416510,
+    totalVolume: "416510",
     floorPrice: "14.79",
+    chain: "ETH",
     items: [
       {
         nftId: "5238",
@@ -99,8 +131,9 @@ export const allCollections = [
     createdAt: "2021-08",
     description:
       "Welcome to Bullieverse, where you can play various games built on unreal engine solo, with friends, and against others in PvP to win incredible prizes and NFT rewards.",
-    totalVolume: 1215,
+    totalVolume: "1215",
     floorPrice: "0.0698",
+    chain: "ETH",
     items: [
       {
         nftId: "3826",
@@ -133,8 +166,9 @@ export const allCollections = [
     createdAt: "2021-12",
     description:
       "🧬 CLONE X 🧬 20,000 next-gen Avatars, by RTFKT and Takashi Murakami 🌸",
-    totalVolume: 340300,
+    totalVolume: "340300",
     floorPrice: "4.9",
+    chain: "ETH",
     items: [
       {
         nftId: "919",
@@ -167,8 +201,9 @@ export const allCollections = [
     createdAt: "2023-02",
     description:
       "Crowd is an infinite-supply generative art collection by Creature World, composing Creatures of every color into endless unique combinations, created and minted over the course of only 24 hours.",
-    totalVolume: 57,
+    totalVolume: "57",
     floorPrice: "0.0156",
+    chain: "ETH",
     items: [
       {
         nftId: "7536",
@@ -201,8 +236,9 @@ export const allCollections = [
     createdAt: "2021-04",
     description:
       "Welcome to an alternate reality, where evolution took a different route and weird apes roam the earth. Some appear normal. Some look weird. And some are just damn cool! Every CyberKong is unique and owns randomized items with different rarities. A few are super rare and even animated! Maybe some of them look familiar!",
-    totalVolume: 27968,
+    totalVolume: "27968",
     floorPrice: "18.96",
+    chain: "ETH",
     items: [
       {
         nftId: "1430",
@@ -235,8 +271,9 @@ export const allCollections = [
     createdAt: "2021-04",
     description:
       "Welcome to an alternate reality, where evolution took a different route and weird apes roam the earth. Some appear normal. Some look weird. And some are just damn cool! Every CyberKong is unique and owns randomized items with different rarities. A few are super rare and even animated! Maybe some of them look familiar!",
-    totalVolume: 263251,
+    totalVolume: "263251",
     floorPrice: "6.498",
+    chain: "ETH",
     items: [
       {
         nftId: "3732",
@@ -269,8 +306,9 @@ export const allCollections = [
     createdAt: "2022-09",
     description:
       "The Hopeful are Play Forever Passes from Azra Games, an Andreessen Horowitz and NFX-funded studio founded by the creator of Star Wars: Galaxy of Heroes. Get epic benefits in the game universe of Web3's most illustrious game development studio.",
-    totalVolume: 2115,
+    totalVolume: "2115",
     floorPrice: "0.2589",
+    chain: "ETH",
     items: [
       {
         nftId: "2065",
@@ -303,8 +341,9 @@ export const allCollections = [
     createdAt: "2022-08",
     description:
       "PALs, or Physics Altering Lifeforms, are your guides and energy source in the MMO space game Warp Nexus, a portal within the STARL Metaverse. Possessing one entitles you to a myriad of benefits such as full access to the game forever, exclusive character and ship customizations and enhancements, and STARL Pass Point rewards.",
-    totalVolume: 14,
+    totalVolume: "14",
     floorPrice: "0.039",
+    chain: "ETH",
     items: [
       {
         nftId: "102",
@@ -337,8 +376,9 @@ export const allCollections = [
     createdAt: "2023-02",
     description:
       "0xAI Genesis: 3450 stunning 1-of-1 artworks generated in the symbiosis of humans and AI, inspired by the Renaissance and its focus on the intersection of science & art. Over 40,000 image generations were delicately distilled down to a scarce curation.",
-    totalVolume: 835,
+    totalVolume: "835",
     floorPrice: "0.117",
+    chain: "ETH",
     items: [
       {
         nftId: "1407",
@@ -371,8 +411,9 @@ export const allCollections = [
     createdAt: "2022-02",
     description:
       "BLOCKS, is a collection of 1000 unique pieces created by both harvmcm and a series of collaborations.",
-    totalVolume: 365,
+    totalVolume: "365",
     floorPrice: "0.2259",
+    chain: "ETH",
     items: [
       {
         nftId: "215",
@@ -391,6 +432,215 @@ export const allCollections = [
         ownerId: "10",
         collectionId: "10",
         image: "/collections/BLOCKS/nfts/676.png",
+      },
+    ],
+  },
+  {
+    id: "11",
+    creatorId: "11",
+    name: "DeGods",
+    profileImage: "/collections/DeGods/profile.png",
+    coverImage: "/collections/DeGods/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2022-02",
+    description:
+      "DeGods is a digital art collection and global community of creators, developers, entrepreneurs, athletes, artists, experimenters and innovators.",
+    totalVolume: "4.3M",
+    floorPrice: "580",
+    chain: "SOL",
+    items: [
+      {
+        nftId: "443",
+        ownerId: "11",
+        collectionId: "11",
+        image: "/collections/DeGods/nfts/3169.png",
+      },
+      {
+        nftId: "5843",
+        ownerId: "11",
+        collectionId: "11",
+        image: "/collections/DeGods/nfts/5843.png",
+      },
+      {
+        nftId: "6937",
+        ownerId: "11",
+        collectionId: "11",
+        image: "/collections/DeGods/nfts/6937.png",
+      },
+    ],
+  },
+  {
+    id: "12",
+    creatorId: "12",
+    name: "Famous Fox Federation",
+    profileImage: "/collections/FamousFox/profile.png",
+    coverImage: "/collections/FamousFox/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2021-05",
+    description:
+      "The Famous Fox Federation, an independent organization of the most fabulously famous foxes on the Blockchain.",
+    totalVolume: "669K",
+    floorPrice: "56.89",
+    chain: "SOL",
+    items: [
+      {
+        nftId: "443",
+        ownerId: "12",
+        collectionId: "12",
+        image: "/collections/FamousFox/nfts/443.png",
+      },
+      {
+        nftId: "463",
+        ownerId: "12",
+        collectionId: "12",
+        image: "/collections/FamousFox/nfts/463.png",
+      },
+      {
+        nftId: "1597",
+        ownerId: "12",
+        collectionId: "12",
+        image: "/collections/FamousFox/nfts/1597.png",
+      },
+    ],
+  },
+  {
+    id: "13",
+    creatorId: "13",
+    name: "y00ts",
+    profileImage: "/collections/y00ts/profile.png",
+    coverImage: "/collections/y00ts/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2022-10",
+    description:
+      "y00ts is a generative art project of 15,000 NFTs. y00topia is a curated community of builders and creators. Each y00t was designed by De Labs in Los Angeles, CA.",
+    totalVolume: "3.5M",
+    floorPrice: "125.78",
+    chain: "SOL",
+    items: [
+      {
+        nftId: "3220",
+        ownerId: "13",
+        collectionId: "13",
+        image: "/collections/y00ts/nfts/3220.png",
+      },
+      {
+        nftId: "11576",
+        ownerId: "13",
+        collectionId: "13",
+        image: "/collections/y00ts/nfts/11576.png",
+      },
+      {
+        nftId: "12482",
+        ownerId: "13",
+        collectionId: "13",
+        image: "/collections/y00ts/nfts/12482.png",
+      },
+    ],
+  },
+  {
+    id: "14",
+    creatorId: "14",
+    name: "Rare Boyz",
+    profileImage: "/collections/RareBoyz/profile.png",
+    coverImage: "/collections/RareBoyz/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2022-05",
+    description: "0% creator royalties for real traders",
+    totalVolume: "135.29",
+    floorPrice: "0.949",
+    chain: "APTOS",
+    items: [
+      {
+        nftId: "29",
+        ownerId: "14",
+        collectionId: "14",
+        image: "/collections/RareBoyz/nfts/29.png",
+      },
+      {
+        nftId: "65",
+        ownerId: "14",
+        collectionId: "14",
+        image: "/collections/RareBoyz/nfts/65.png",
+      },
+      {
+        nftId: "89",
+        ownerId: "14",
+        collectionId: "14",
+        image: "/collections/RareBoyz/nfts/89.png",
+      },
+    ],
+  },
+  {
+    id: "15",
+    creatorId: "15",
+    name: "Lemur Lounge",
+    profileImage: "/collections/LemurLounge/profile.png",
+    coverImage: "/collections/LemurLounge/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2022-02",
+    description:
+      "A connoisseur society of lemurs lounging on Aptos and building a gamified Play-to-Own ecosystem powered by $LNGE.",
+    totalVolume: "436.96",
+    floorPrice: "2.8",
+    chain: "APTOS",
+    items: [
+      {
+        nftId: "1188",
+        ownerId: "15",
+        collectionId: "15",
+        image: "/collections/LemurLounge/nfts/1188.png",
+      },
+      {
+        nftId: "1658",
+        ownerId: "15",
+        collectionId: "15",
+        image: "/collections/LemurLounge/nfts/1658.png",
+      },
+      {
+        nftId: "3556",
+        ownerId: "15",
+        collectionId: "15",
+        image: "/collections/LemurLounge/nfts/3556.png",
+      },
+    ],
+  },
+  {
+    id: "16",
+    creatorId: "16",
+    name: "Aptos Monkeys",
+    profileImage: "/collections/AptosMonkey/profile.png",
+    coverImage: "/collections/AptosMonkey/cover.png",
+    category: "pfp",
+    itemNumber: 10000,
+    createdAt: "2022-03",
+    description:
+      "A group of skilled monkeys working together to build a civilized jungle. Each monkey has its unique intelligence to create long-lasting product.",
+    totalVolume: "394.22",
+    floorPrice: "19.95",
+    chain: "APTOS",
+    items: [
+      {
+        nftId: "3507",
+        ownerId: "16",
+        collectionId: "16",
+        image: "/collections/AptosMonkey/nfts/3507.png",
+      },
+      {
+        nftId: "4031",
+        ownerId: "16",
+        collectionId: "16",
+        image: "/collections/AptosMonkey/nfts/4031.png",
+      },
+      {
+        nftId: "7098",
+        ownerId: "16",
+        collectionId: "16",
+        image: "/collections/AptosMonkey/nfts/7098.png",
       },
     ],
   },

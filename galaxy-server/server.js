@@ -29,18 +29,18 @@ const typeDefs = gql`
     itemNumber: Int!
     createdAt: String!
     description: String!
-    totalVolume: Int!
+    totalVolume: String!
     floorPrice: String!
     items: [Nft!]!
+    chain: String!
   }
 
   type Query {
-    nft(collectionId: ID!, nftId: ID!): Nft!
     nftsByCollection(collectionId: ID!): [Nft!]!
-    allCollections: [Collection!]!
-    artCollection: [Collection!]!
-    gamingCollection: [Collection!]!
-    pfpCollection: [Collection!]!
+    allCollections(chain: String!): [Collection!]!
+    artCollection(chain: String!): [Collection!]!
+    gamingCollection(chain: String!): [Collection!]!
+    pfpCollection(chain: String!): [Collection!]!
   }
   type Mutation {
     createNft(
@@ -55,39 +55,39 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    nft(_, { collectionId, nftId }) {
-      const allNfts = allCollections.find(
-        (collection) => collection.id === collectionId
-      ).items;
-      return allNfts.find((nft) => nft.nftId === nftId);
-    },
     nftsByCollection(_, { collectionId }) {
       const nfts = allCollections.find(
         (collection) => collection.id === collectionId
       ).items;
       return nfts;
     },
-    allCollections() {
-      allCollections.sort((a, b) => b.totalVolume - a.totalVolume);
-      return allCollections;
+    allCollections(_, { chain }) {
+      const allCollection = allCollections.filter(
+        (collection) => collection.chain === chain
+      );
+      allCollection.sort((a, b) => b.totalVolume - a.totalVolume);
+      return allCollection;
     },
-    artCollection() {
+    artCollection(_, { chain }) {
       const artCollection = allCollections.filter(
-        (collection) => collection.category === "art"
+        (collection) =>
+          collection.category === "art" && collection.chain === chain
       );
       artCollection.sort((a, b) => b.totalVolume - a.totalVolume);
       return artCollection;
     },
-    gamingCollection() {
+    gamingCollection(_, { chain }) {
       const gamingCollection = allCollections.filter(
-        (collection) => collection.category === "gaming"
+        (collection) =>
+          collection.category === "gaming" && collection.chain === chain
       );
       gamingCollection.sort((a, b) => b.totalVolume - a.totalVolume);
       return gamingCollection;
     },
-    pfpCollection() {
+    pfpCollection(_, { chain }) {
       const pfpCollection = allCollections.filter(
-        (collection) => collection.category === "pfp"
+        (collection) =>
+          collection.category === "pfp" && collection.chain === chain
       );
       pfpCollection.sort((a, b) => b.totalVolume - a.totalVolume);
       return pfpCollection;
