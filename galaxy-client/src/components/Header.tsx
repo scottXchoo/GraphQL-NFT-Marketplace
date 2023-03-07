@@ -11,7 +11,7 @@ const Header = () => {
               width={60}
               height={60}
               src="/galaxyLogo.png"
-              alt=""
+              alt="galaxyLogo"
               className="rounded-full shadow-md mr-3"
             />
             <div className="w-auto mr-14 flex">

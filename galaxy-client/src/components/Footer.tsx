@@ -11,7 +11,7 @@ const Footer = () => {
             width={60}
             height={60}
             src="/galaxyLogo.png"
-            alt=""
+            alt="galaxyLogo"
             className="rounded-full shadow-md mb-1"
           />
           <div className="w-auto mr-14 flex">
