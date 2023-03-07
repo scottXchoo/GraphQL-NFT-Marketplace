@@ -10,6 +10,7 @@ const typeDefs = gql`
   }
   type Nft {
     id: ID!
+    nftId: ID!
     ownerId: ID!
     collectionId: ID!
     name: String!
@@ -58,7 +59,7 @@ const resolvers = {
       const allNfts = allCollections.find(
         (collection) => collection.id === collectionId
       ).items;
-      return allNfts.find((nft) => nft.id === nftId);
+      return allNfts.find((nft) => nft.nftId === nftId);
     },
     nftsByCollection(_, { collectionId }) {
       const nfts = allCollections.find(
@@ -94,6 +95,9 @@ const resolvers = {
   },
 
   Nft: {
+    id({ nftId, collectionId }) {
+      return `${collectionId}/${nftId}`;
+    },
     owner({ ownerId }) {
       return allOwners.find((owner) => owner.id === ownerId);
     },
@@ -101,31 +105,16 @@ const resolvers = {
       return allCollections.find((collection) => collection.id === collectionId)
         .name;
     },
-    name({ collectionId, id }) {
+    name({ collectionId, nftId }) {
       const name = allCollections.find(
         (collection) => collection.id === collectionId
       ).name;
-      return `${name} #${id}`;
+      return `${name} #${nftId}`;
     },
   },
   Collection: {
     creator({ creatorId }) {
       return allOwners.find((owner) => owner.id === creatorId);
-    },
-  },
-
-  Mutation: {
-    createNft(_, { name, description, image, externalUrl, userId }) {
-      const newNft = {
-        id: allNfts.length + 1,
-        name,
-        description,
-        image,
-        externalUrl,
-        userId,
-      };
-      allNfts.push(newNft);
-      return newNft;
     },
   },
 };

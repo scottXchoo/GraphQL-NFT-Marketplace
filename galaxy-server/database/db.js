@@ -69,19 +69,19 @@ export const allCollections = [
     floorPrice: "14.79",
     items: [
       {
-        id: "5238",
+        nftId: "5238",
         ownerId: "1",
         collectionId: "1",
         image: "/collections/Azuki/nfts/5238.png",
       },
       {
-        id: "6026",
+        nftId: "6026",
         ownerId: "1",
         collectionId: "1",
         image: "/collections/Azuki/nfts/6026.png",
       },
       {
-        id: "6671",
+        nftId: "6671",
         ownerId: "1",
         collectionId: "1",
         image: "/collections/Azuki/nfts/6671.png",
@@ -103,19 +103,19 @@ export const allCollections = [
     floorPrice: "0.0698",
     items: [
       {
-        id: "3826",
+        nftId: "3826",
         ownerId: "2",
         collectionId: "2",
         image: "/collections/Bulliever/nfts/3826.png",
       },
       {
-        id: "7186",
+        nftId: "7186",
         ownerId: "2",
         collectionId: "2",
         image: "/collections/Bulliever/nfts/7186.png",
       },
       {
-        id: "7197",
+        nftId: "7197",
         ownerId: "2",
         collectionId: "2",
         image: "/collections/Bulliever/nfts/7197.png",
@@ -137,19 +137,19 @@ export const allCollections = [
     floorPrice: "4.9",
     items: [
       {
-        id: "919",
+        nftId: "919",
         ownerId: "3",
         collectionId: "3",
         image: "/collections/CLONEX/nfts/919.jpg",
       },
       {
-        id: "3661",
+        nftId: "3661",
         ownerId: "3",
         collectionId: "3",
         image: "/collections/CLONEX/nfts/3661.png",
       },
       {
-        id: "17840",
+        nftId: "17840",
         ownerId: "3",
         collectionId: "3",
         image: "/collections/CLONEX/nfts/17840.jpg",
@@ -171,19 +171,19 @@ export const allCollections = [
     floorPrice: "0.0156",
     items: [
       {
-        id: "7536",
+        nftId: "7536",
         ownerId: "4",
         collectionId: "4",
         image: "/collections/Crowd/nfts/7536.png",
       },
       {
-        id: "7539",
+        nftId: "7539",
         ownerId: "4",
         collectionId: "4",
         image: "/collections/Crowd/nfts/7539.png",
       },
       {
-        id: "7541",
+        nftId: "7541",
         ownerId: "4",
         collectionId: "4",
         image: "/collections/Crowd/nfts/7541.png",
@@ -205,19 +205,19 @@ export const allCollections = [
     floorPrice: "18.96",
     items: [
       {
-        id: "1430",
+        nftId: "1430",
         ownerId: "5",
         collectionId: "5",
         image: "/collections/CyberKongz/nfts/1430.png",
       },
       {
-        id: "3019",
+        nftId: "3019",
         ownerId: "5",
         collectionId: "5",
         image: "/collections/CyberKongz/nfts/3019.png",
       },
       {
-        id: "3663",
+        nftId: "3663",
         ownerId: "5",
         collectionId: "5",
         image: "/collections/CyberKongz/nfts/3663.png",
@@ -239,19 +239,19 @@ export const allCollections = [
     floorPrice: "6.498",
     items: [
       {
-        id: "3732",
+        nftId: "3732",
         ownerId: "6",
         collectionId: "6",
         image: "/collections/Moonbirds/nfts/3732.png",
       },
       {
-        id: "4028",
+        nftId: "4028",
         ownerId: "6",
         collectionId: "6",
         image: "/collections/Moonbirds/nfts/4028.png",
       },
       {
-        id: "9691",
+        nftId: "9691",
         ownerId: "6",
         collectionId: "6",
         image: "/collections/Moonbirds/nfts/9691.png",
@@ -273,19 +273,19 @@ export const allCollections = [
     floorPrice: "0.2589",
     items: [
       {
-        id: "2065",
+        nftId: "2065",
         ownerId: "7",
         collectionId: "7",
         image: "/collections/Azra/nfts/2065.png",
       },
       {
-        id: "4355",
+        nftId: "4355",
         ownerId: "7",
         collectionId: "7",
         image: "/collections/Azra/nfts/4355.png",
       },
       {
-        id: "5182",
+        nftId: "5182",
         ownerId: "7",
         collectionId: "7",
         image: "/collections/Azra/nfts/5182.png",
@@ -307,19 +307,19 @@ export const allCollections = [
     floorPrice: "0.039",
     items: [
       {
-        id: "102",
+        nftId: "102",
         ownerId: "8",
         collectionId: "8",
         image: "/collections/STARLPALS/nfts/102.png",
       },
       {
-        id: "1775",
+        nftId: "1775",
         ownerId: "8",
         collectionId: "8",
         image: "/collections/STARLPALS/nfts/1775.png",
       },
       {
-        id: "1817",
+        nftId: "1817",
         ownerId: "8",
         collectionId: "8",
         image: "/collections/STARLPALS/nfts/1817.png",
@@ -341,19 +341,19 @@ export const allCollections = [
     floorPrice: "0.117",
     items: [
       {
-        id: "1407",
+        nftId: "1407",
         ownerId: "9",
         collectionId: "9",
         image: "/collections/Genesis/nfts/1407.png",
       },
       {
-        id: "1968",
+        nftId: "1968",
         ownerId: "9",
         collectionId: "9",
         image: "/collections/Genesis/nfts/1968.png",
       },
       {
-        id: "3270",
+        nftId: "3270",
         ownerId: "9",
         collectionId: "9",
         image: "/collections/Genesis/nfts/3270.png",
@@ -375,19 +375,19 @@ export const allCollections = [
     floorPrice: "0.2259",
     items: [
       {
-        id: "215",
+        nftId: "215",
         ownerId: "10",
         collectionId: "10",
         image: "/collections/BLOCKS/nfts/215.png",
       },
       {
-        id: "607",
+        nftId: "607",
         ownerId: "10",
         collectionId: "10",
         image: "/collections/BLOCKS/nfts/607.png",
       },
       {
-        id: "676",
+        nftId: "676",
         ownerId: "10",
         collectionId: "10",
         image: "/collections/BLOCKS/nfts/676.png",
