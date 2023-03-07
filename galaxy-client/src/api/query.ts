@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
 
 export const GET_QUERY = gql`
-  query getQuery($collectionId: ID!) {
+  query getQuery($collectionId: ID!, $chain: String!) {
     nftsByCollection(collectionId: $collectionId) {
       id
       name
       image
     }
-    allCollections {
+    allCollections(chain: $chain) {
       id
       name
       totalVolume
@@ -16,7 +16,7 @@ export const GET_QUERY = gql`
       createdAt
       category
     }
-    pfpCollection {
+    pfpCollection(chain: $chain) {
       id
       name
       totalVolume
@@ -25,7 +25,7 @@ export const GET_QUERY = gql`
       createdAt
       category
     }
-    artCollection {
+    artCollection(chain: $chain) {
       id
       name
       totalVolume
@@ -34,7 +34,7 @@ export const GET_QUERY = gql`
       createdAt
       category
     }
-    gamingCollection {
+    gamingCollection(chain: $chain) {
       id
       name
       totalVolume

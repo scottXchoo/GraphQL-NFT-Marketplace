@@ -1,6 +1,7 @@
 import { GET_QUERY } from "@/api/query";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { CategoryButton } from "./common/Button";
 
@@ -21,11 +22,13 @@ interface Nft {
 }
 
 const Dashboard = () => {
+  const [chain, setChain] = useState("ETH");
   const [collectionId, setCollectionId] = useState("3");
   const [category, setCategory] = useState("all");
   const { data, loading, error } = useQuery(GET_QUERY, {
     variables: {
       collectionId: `${collectionId}`,
+      chain: chain,
     },
   });
 
@@ -56,7 +59,7 @@ const Dashboard = () => {
       <div className="pt-8 pb-8 bg-gray-900 shadow">
         <div className="px-8 border-b">
           <div className="flex flex-wrap items-center mb-3">
-            <h3 className="text-2xl font-bold text-white">Trending NFTs</h3>
+            <h3 className="text-2xl font-bold text-white">🔥Trending NFTs🔥</h3>
           </div>
           <div className="flex justify-between pb-8 px-4">
             {data.nftsByCollection.map((nft: Nft) => (
@@ -86,7 +89,7 @@ const Dashboard = () => {
               isActive={category === "pfp"}
               onClick={() => setCategory("pfp")}
             >
-              PFPs
+              PFP
             </CategoryButton>
             <CategoryButton
               isActive={category === "art"}
