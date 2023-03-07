@@ -1,17 +1,16 @@
-import { ALL_COLLECTIONS } from "@/api/query";
+import { GET_QUERY } from "@/api/query";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import React, { useState } from "react";
 
 interface Collection {
   id: string;
-  nftId: string;
   name: string;
-  category: string;
   totalVolume: number;
   floorPrice: string;
   profileImage: string;
   createdAt: string;
+  category: string;
 }
 
 interface Nft {
@@ -22,11 +21,24 @@ interface Nft {
 
 const Dashboard = () => {
   const [collectionId, setCollectionId] = useState("3");
-  const { data, loading, error } = useQuery(ALL_COLLECTIONS, {
+  const [category, setCategory] = useState("all");
+  const { data, loading, error } = useQuery(GET_QUERY, {
     variables: {
       collectionId: `${collectionId}`,
     },
   });
+
+  const dataCategory =
+    category === "all"
+      ? data?.allCollections
+      : category === "pfp"
+      ? data?.pfpCollection
+      : category === "art"
+      ? data?.artCollection
+      : category === "gaming"
+      ? data?.gamingCollection
+      : data?.allCollections;
+
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Not fetching :(</h1>;
 
@@ -55,30 +67,30 @@ const Dashboard = () => {
             ))}
           </div>
           <div>
-            <a
+            <button
+              onClick={() => setCategory("all")}
               className="inline-block px-4 pb-2 text-sm font-bold text-white border-b-2 border-white"
-              href="#"
             >
               ALL
-            </a>
-            <a
+            </button>
+            <button
+              onClick={() => setCategory("pfp")}
               className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
-              href="#"
             >
               PFPs
-            </a>
-            <a
+            </button>
+            <button
+              onClick={() => setCategory("art")}
               className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
-              href="#"
             >
               ART
-            </a>
-            <a
+            </button>
+            <button
+              onClick={() => setCategory("gaming")}
               className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
-              href="#"
             >
               GAMING
-            </a>
+            </button>
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -99,37 +111,35 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {data.allCollections.map(
-                (collection: Collection, index: number) => (
-                  <tr key={`${collection.id}/${collection.name}`}>
-                    <td className="flex items-center my-3 px-8 font-medium">
-                      <p className="mr-7 text-white text-lg">{index + 1}.</p>
-                      <button onClick={() => setCollectionId(collection.id)}>
-                        <Image
-                          width={60}
-                          height={60}
-                          src={collection.profileImage}
-                          alt="collectionProfileImage"
-                          className="rounded-xl shadow-md mr-3"
-                        />
-                      </button>
-                      <p className="text-white text-sm">{collection.name}</p>
-                    </td>
-                    <td className="text-white text-sm text-right pr-10">
-                      {collection.floorPrice} ETH
-                    </td>
-                    <td className="text-white text-sm text-right pr-10">
-                      {collection.totalVolume} ETH
-                    </td>
-                    <td className="text-white text-sm text-right pr-10">
-                      {collection.category.toUpperCase()}
-                    </td>
-                    <td className="text-white text-sm text-right pr-10">
-                      {collection.createdAt}
-                    </td>
-                  </tr>
-                )
-              )}
+              {dataCategory.map((collection: Collection, index: number) => (
+                <tr key={`${collection.id}/${collection.name}`}>
+                  <td className="flex items-center my-3 px-8 font-medium">
+                    <p className="mr-7 text-white text-lg">{index + 1}.</p>
+                    <button onClick={() => setCollectionId(collection.id)}>
+                      <Image
+                        width={60}
+                        height={60}
+                        src={collection.profileImage}
+                        alt="collectionProfileImage"
+                        className="rounded-xl shadow-md mr-3"
+                      />
+                    </button>
+                    <p className="text-white text-sm">{collection.name}</p>
+                  </td>
+                  <td className="text-white text-sm text-right pr-10">
+                    {collection.floorPrice} ETH
+                  </td>
+                  <td className="text-white text-sm text-right pr-10">
+                    {collection.totalVolume} ETH
+                  </td>
+                  <td className="text-white text-sm text-right pr-10">
+                    {collection.category.toUpperCase()}
+                  </td>
+                  <td className="text-white text-sm text-right pr-10">
+                    {collection.createdAt}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
