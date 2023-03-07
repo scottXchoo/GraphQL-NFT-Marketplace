@@ -2,6 +2,7 @@ import { GET_QUERY } from "@/api/query";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { CategoryButton } from "./common/Button";
 
 interface Collection {
   id: string;
@@ -28,16 +29,24 @@ const Dashboard = () => {
     },
   });
 
-  const dataCategory =
-    category === "all"
-      ? data?.allCollections
-      : category === "pfp"
-      ? data?.pfpCollection
-      : category === "art"
-      ? data?.artCollection
-      : category === "gaming"
-      ? data?.gamingCollection
-      : data?.allCollections;
+  let dataCategory = [];
+  switch (category) {
+    case "all":
+      dataCategory = data?.allCollections;
+      break;
+    case "pfp":
+      dataCategory = data?.pfpCollection;
+      break;
+    case "art":
+      dataCategory = data?.artCollection;
+      break;
+    case "gaming":
+      dataCategory = data?.gamingCollection;
+      break;
+    default:
+      dataCategory = data?.allCollections;
+      break;
+  }
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Not fetching :(</h1>;
@@ -67,30 +76,30 @@ const Dashboard = () => {
             ))}
           </div>
           <div>
-            <button
+            <CategoryButton
+              isActive={category === "all"}
               onClick={() => setCategory("all")}
-              className="inline-block px-4 pb-2 text-sm font-bold text-white border-b-2 border-white"
             >
               ALL
-            </button>
-            <button
+            </CategoryButton>
+            <CategoryButton
+              isActive={category === "pfp"}
               onClick={() => setCategory("pfp")}
-              className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
             >
               PFPs
-            </button>
-            <button
+            </CategoryButton>
+            <CategoryButton
+              isActive={category === "art"}
               onClick={() => setCategory("art")}
-              className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
             >
               ART
-            </button>
-            <button
+            </CategoryButton>
+            <CategoryButton
+              isActive={category === "gaming"}
               onClick={() => setCategory("gaming")}
-              className="inline-block px-4 pb-2 text-sm font-medium text-gray-500 border-b-2 border-transparent"
             >
               GAMING
-            </button>
+            </CategoryButton>
           </div>
         </div>
         <div className="overflow-x-auto">
