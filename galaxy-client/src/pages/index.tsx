@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Galaxy : NFT Marketplace in Cosmos</title>
+        <title>Galaxy : The Multi-chain NFT Marketplace</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
