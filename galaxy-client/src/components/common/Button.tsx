@@ -13,7 +13,7 @@ export const CategoryButton = ({
 }: CategoryButtonProps) => {
   return (
     <button
-      className={`inline-block px-4 pb-2 text-sm border-b-2 ${
+      className={`inline-block px-4 text-sm border-b-2 ${
         isActive
           ? "font-bold text-white border-white"
           : "font-medium text-gray-500 border-transparent"

@@ -115,7 +115,7 @@ const Dashboard = () => {
             ))}
           </div>
           <div className="flex justify-between">
-            <div>
+            <div className="flex">
               {categoryButtonArray.map((parameter) => (
                 <CategoryButton
                   key={parameter.name}
