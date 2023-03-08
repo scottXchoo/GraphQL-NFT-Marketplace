@@ -1,8 +1,7 @@
 import { GET_QUERY } from "@/api/query";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CategoryButton } from "./common/Button";
 
 interface Collection {
@@ -21,9 +20,22 @@ interface Nft {
   image: string;
 }
 
+export const categoryButtonArray = [
+  { name: "all" },
+  { name: "pfp" },
+  { name: "art" },
+  { name: "gaming" },
+];
+
+export const multiChainArray = [
+  { name: "ETH", src: "/logo/ethereum.png" },
+  { name: "SOL", src: "/logo/solana.png" },
+  { name: "APTOS", src: "/logo/aptos.png" },
+];
+
 const Dashboard = () => {
   const [chain, setChain] = useState("ETH");
-  const [collectionId, setCollectionId] = useState("3");
+  const [collectionId, setCollectionId] = useState("ETH");
   const [category, setCategory] = useState("all");
   const { data, loading, error } = useQuery(GET_QUERY, {
     variables: {
@@ -31,6 +43,18 @@ const Dashboard = () => {
       chain: chain,
     },
   });
+
+  useEffect(() => {
+    setCollectionId(
+      chain === "ETH"
+        ? "3"
+        : chain === "SOL"
+        ? "11"
+        : chain === "APTOS"
+        ? "15"
+        : "3"
+    );
+  }, [chain]);
 
   let dataCategory = [];
   switch (category) {
@@ -65,8 +89,8 @@ const Dashboard = () => {
             {data.nftsByCollection.map((nft: Nft) => (
               <div key={`${nft.id}/${nft.name}`} className="relative">
                 <Image
-                  width={300}
-                  height={300}
+                  width={280}
+                  height={280}
                   src={nft.image}
                   alt="nftsByCollection"
                   className="rounded-3xl shadow-md w-full"
@@ -78,31 +102,38 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-          <div>
-            <CategoryButton
-              isActive={category === "all"}
-              onClick={() => setCategory("all")}
-            >
-              ALL
-            </CategoryButton>
-            <CategoryButton
-              isActive={category === "pfp"}
-              onClick={() => setCategory("pfp")}
-            >
-              PFP
-            </CategoryButton>
-            <CategoryButton
-              isActive={category === "art"}
-              onClick={() => setCategory("art")}
-            >
-              ART
-            </CategoryButton>
-            <CategoryButton
-              isActive={category === "gaming"}
-              onClick={() => setCategory("gaming")}
-            >
-              GAMING
-            </CategoryButton>
+          <div className="flex justify-between">
+            <div>
+              {categoryButtonArray.map((parameter) => (
+                <CategoryButton
+                  key={parameter.name}
+                  isActive={category === parameter.name}
+                  onClick={() => {
+                    setCategory(parameter.name);
+                  }}
+                >
+                  {parameter.name.toUpperCase()}
+                </CategoryButton>
+              ))}
+            </div>
+            <div className="flex">
+              {multiChainArray.map((parameter) => (
+                <button
+                  key={parameter.name}
+                  onClick={() => setChain(parameter.name)}
+                  className="flex px-4 pb-2 text-sm text-white font-bold"
+                >
+                  <Image
+                    width={30}
+                    height={30}
+                    src={parameter.src}
+                    alt="multiChain"
+                    className="rounded-full mr-2"
+                  />
+                  <p className="m-auto text-base">{parameter.name}</p>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -139,10 +170,10 @@ const Dashboard = () => {
                     <p className="text-white text-sm">{collection.name}</p>
                   </td>
                   <td className="text-white text-sm text-right pr-10">
-                    {collection.floorPrice} ETH
+                    {collection.floorPrice} {chain}
                   </td>
                   <td className="text-white text-sm text-right pr-10">
-                    {collection.totalVolume} ETH
+                    {collection.totalVolume} {chain}
                   </td>
                   <td className="text-white text-sm text-right pr-10">
                     {collection.category.toUpperCase()}
