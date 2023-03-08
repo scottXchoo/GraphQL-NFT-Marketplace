@@ -1,10 +1,23 @@
+import { chainStateAtom } from "@/state/atom";
 import Image from "next/image";
 import React from "react";
+import { useRecoilValue } from "recoil";
 
 const Header = () => {
+  const chain = useRecoilValue(chainStateAtom);
   return (
     <section className="overflow-hidden">
-      <div className="flex items-center justify-between px-8 py-4 bg-gray-900">
+      <div
+        className={`flex items-center justify-between px-8 py-4 ${
+          chain === "ETH"
+            ? "bg-blue-1000"
+            : chain === "SOL"
+            ? "bg-purple-1000"
+            : chain === "APTOS"
+            ? "bg-gray-900"
+            : "bg-blue-1000"
+        }`}
+      >
         <div className="w-auto">
           <div className="flex flex-wrap items-center">
             <Image

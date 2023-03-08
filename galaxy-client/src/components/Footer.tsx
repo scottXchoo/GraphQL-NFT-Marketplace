@@ -1,10 +1,23 @@
+import { chainStateAtom } from "@/state/atom";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useRecoilValue } from "recoil";
 
 const Footer = () => {
+  const chain = useRecoilValue(chainStateAtom);
   return (
-    <section className="px-8 relative py-16 bg-gray-900 overflow-hidden">
+    <section
+      className={`px-8 relative py-16 overflow-hidden ${
+        chain === "ETH"
+          ? "bg-blue-1000"
+          : chain === "SOL"
+          ? "bg-purple-1000"
+          : chain === "APTOS"
+          ? "bg-gray-900"
+          : "bg-blue-1000"
+      }`}
+    >
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 lg:w-5/12">
           <Image

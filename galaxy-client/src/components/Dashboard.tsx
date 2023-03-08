@@ -1,7 +1,9 @@
 import { GET_QUERY } from "@/api/query";
+import { chainStateAtom } from "@/state/atom";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 import { CategoryButton } from "./common/Button";
 
 interface Collection {
@@ -34,7 +36,7 @@ export const multiChainArray = [
 ];
 
 const Dashboard = () => {
-  const [chain, setChain] = useState("ETH");
+  const [chain, setChain] = useRecoilState(chainStateAtom);
   const [collectionId, setCollectionId] = useState("ETH");
   const [category, setCategory] = useState("all");
   const { data, loading, error } = useQuery(GET_QUERY, {
@@ -79,8 +81,18 @@ const Dashboard = () => {
   if (error) return <h1>Not fetching :(</h1>;
 
   return (
-    <section className="py-1 mx-auto">
-      <div className="pt-8 pb-8 bg-gray-900 shadow">
+    <section className="py-[0.1rem] mx-auto">
+      <div
+        className={`pt-8 pb-8 shadow ${
+          chain === "ETH"
+            ? "bg-blue-1000"
+            : chain === "SOL"
+            ? "bg-purple-1000"
+            : chain === "APTOS"
+            ? "bg-gray-900"
+            : "bg-blue-1000"
+        }`}
+      >
         <div className="px-8 border-b">
           <div className="flex flex-wrap items-center mb-3">
             <h3 className="text-2xl font-bold text-white">🔥Trending NFTs🔥</h3>
@@ -121,7 +133,8 @@ const Dashboard = () => {
                 <button
                   key={parameter.name}
                   onClick={() => setChain(parameter.name)}
-                  className="flex px-4 pb-2 text-sm text-white font-bold"
+                  className={`flex px-4 pb-2 text-sm text-white font-bold
+                  ${chain === parameter.name ? "border-b-2" : ""}`}
                 >
                   <Image
                     width={30}
