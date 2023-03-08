@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Dashboard from "@/components/Dashboard";
 import Footer from "@/components/Footer";
+import { RecoilRoot } from "recoil";
 
 export default function Home() {
   return (
@@ -11,9 +12,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header />
-        <Dashboard />
-        <Footer />
+        <RecoilRoot>
+          <Header />
+          <Dashboard />
+          <Footer />
+        </RecoilRoot>
       </main>
     </>
   );
