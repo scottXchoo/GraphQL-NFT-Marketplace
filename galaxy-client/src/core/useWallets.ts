@@ -18,7 +18,7 @@ export const useWallets = () => {
         console.log("Please install MetaMask!");
       }
 
-      window.ethereum.on("accountsChanged", (accounts: string[]) => {
+      ethereum.on("accountsChanged", (accounts: string[]) => {
         if (accounts.length > 0) {
           setAddress(accounts[0]);
           setConnected(true);
@@ -28,7 +28,7 @@ export const useWallets = () => {
         }
       });
 
-      window.ethereum.on("chainChanged", (chainId: string) => {
+      ethereum.on("chainChanged", (chainId: string) => {
         console.log("chainChanged", chainId);
       });
 
@@ -43,8 +43,8 @@ export const useWallets = () => {
       })();
 
       return () => {
-        window.ethereum.removeAllListeners("accountsChanged");
-        window.ethereum.removeAllListeners("chainChanged");
+        ethereum.removeAllListeners("accountsChanged");
+        ethereum.removeAllListeners("chainChanged");
       };
     };
 

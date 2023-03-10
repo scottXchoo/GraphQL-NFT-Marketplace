@@ -54,7 +54,7 @@ const Header = () => {
         <div className="w-auto">
           <div className="flex flex-wrap items-center">
             {connected ? (
-              <div className="flex w-auto py-3 px-6 bg-indigo-600 hover:bg-indigo-600 rounded shadow">
+              <div className="flex w-auto py-3 px-6 bg-indigo-600 hover:bg-indigo-600 rounded-xl shadow">
                 <p className="m-auto font-heading text-white leading-none text-lg">
                   Address: {shortenAddress(address)}
                 </p>
@@ -63,7 +63,7 @@ const Header = () => {
             ) : (
               <button
                 onClick={handleConnectWallet}
-                className="flex w-auto py-3 px-6 bg-indigo-600 hover:bg-indigo-600 rounded shadow"
+                className="flex w-auto py-3 px-6 bg-indigo-600 hover:bg-indigo-600 rounded-xl shadow"
               >
                 <Image
                   width={35}
