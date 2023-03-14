@@ -1,2 +1,2 @@
 # Galaxy
-Multi-chain NFT marketplace for study.
+Multi-chain NFT marketplace by GraphQL for study.
