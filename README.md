@@ -1,2 +1,2 @@
 # Galaxy
-NFT marketplace into Cosmos blockchain for study.
+Multi-chain NFT marketplace for study.
