@@ -7,8 +7,21 @@
 
 
 ## 💻 Tech Stack
-- Core : ReactJS, NextJS, TypeScript
-- State Management : RecoilJS
-- Styling : Tailwind CSS, Shuffle
-- Package Manager : Yarn Berry
-- Back-End : GraphQL, Apollo
+### ⭐️ Core
+- React.js
+- Next.js
+- TypeScript
+
+### 📚 State Management
+- Recoil
+
+### 🚀 Data Fetching
+- React Query
+- Apollo Client with GraphQL
+
+### 🎨 Styling
+- Tailwind CSS
+- Shuffle
+
+### 📦 Package Manager
+- Yarn Berry
