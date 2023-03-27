@@ -16,7 +16,6 @@
 - Recoil
 
 ### 🚀 Data Fetching
-- React Query
 - Apollo Client with GraphQL
 
 ### 🎨 Styling
